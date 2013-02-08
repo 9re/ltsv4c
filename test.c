@@ -35,8 +35,8 @@ void test_suite_0(void) {
     }
 
     ltsv_count = ltsv_get_count(ltsv);
-    TEST(ltsv_count == 3);
-    if (ltsv_count != 3) {
+    TEST(ltsv_count == 4);
+    if (ltsv_count != 4) {
         fprintf(stderr, "ltsv count doesn't match!\n");
 	return;
     }
@@ -52,7 +52,15 @@ void test_suite_0(void) {
     TEST(STREQ(ltsv_record_get_value(record, "c"), "05/02/2013:12:02:00 +0900"));
     TEST(STREQ(ltsv_record_get_value(record, "b"), "x.z.x.z"));
     TEST(STREQ(ltsv_record_get_value(record, "utf-8"), "あいうえお"));
-
+    record = ltsv_get_record(ltsv, 3);
+    TEST(STREQ(ltsv_record_get_value(record, "host"), "127.0.0.1"));
+    TEST(STREQ(ltsv_record_get_value(record, "ident"), "-"));
+    TEST(STREQ(ltsv_record_get_value(record, "time"), "[10/Oct/2000:13:55:36 -0700]"));
+    TEST(STREQ(ltsv_record_get_value(record, "req"), "GET /apache_pb.gif HTTP/1.0"));
+    TEST(STREQ(ltsv_record_get_value(record, "status"), "200"));
+    TEST(STREQ(ltsv_record_get_value(record, "size"), "2326"));
+    TEST(STREQ(ltsv_record_get_value(record, "referer"), "http://www.example.com/start.html"));
+    TEST(STREQ(ltsv_record_get_value(record, "ua"), "Mozilla/4.08 [en] (Win98; I ;Nav)"));
 
     ltsv_free(ltsv);
     

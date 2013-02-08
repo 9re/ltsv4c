@@ -1,3 +1,4 @@
 a:05/02/2013:12:00:00 +0900	b:x.x.x.x	c:nn
 b:05/02/2013:12:01:00 +0900	c:x.y.x.y	a:nm
 c:05/02/2013:12:02:00 +0900	b:x.z.x.z	utf-8:あいうえお
+host:127.0.0.1	ident:-	user:frank	time:[10/Oct/2000:13:55:36 -0700]	req:GET /apache_pb.gif HTTP/1.0	status:200	size:2326	referer:http://www.example.com/start.html	ua:Mozilla/4.08 [en] (Win98; I ;Nav)
